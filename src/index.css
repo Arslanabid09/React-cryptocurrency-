@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+
+body {
+  @apply bg-gradient-to-br from-blue-950 to-sky-900;
+}
+
+@tailwind utilities;
