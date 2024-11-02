@@ -1,19 +1,23 @@
-import React from 'react'
-import { Header } from './Components'
-import Home from './Pages/Home'
-import { Route, Routes } from 'react-router-dom'
-import Main from './Pages/Main'
-import SinlgePage from './Pages/SinlgePage'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home';
+import Main from './Pages/Main';
+import SinlgePage from './Pages/SinlgePage';
+import Error from './Pages/Error'; // Make sure to import the Error component
 
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Main/> }>
-        <Route path='' element={<Home />} />
-        <Route path='/coin/:id' element={<SinlgePage/>} />
+      {/* Main route */}
+      <Route path="/" element={<Main />}>
+        <Route index element={<Home />} /> {/* Use "index" for the default path */}
+        <Route path="coin/:id" element={<SinlgePage />} />
       </Route>
-    </Routes>
-  )
-}
 
-export default App
+      {/* Catch-all route for unknown paths */}
+      <Route path="*" element={<Error />} />
+    </Routes>
+  );
+};
+
+export default App;
